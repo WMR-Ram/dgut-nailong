@@ -10,6 +10,7 @@
 站内所有奶蛙图片来自公开的社区素材仓库 **「奶蛙艺术圣殿」素材仓库**（MIT License，官方说明「素材免费拿，快乐不限量」）：
 - 仓库：<https://github.com/Nailong-Studio/wallpaper>
 - 分支/目录：`emotes/`（表情包）、`laugh-gallery/`（大笑藏馆）、`classic/`（名画再创作）
+- 说明：站内图片均为 **jsDelivr CDN 外链（hotlink）** 引用上述仓库（`https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/...`，失败自动切换 `testingcf` 镜像），本仓库不再依赖本地副本。
 - 说明：**奶蛙**是网友用 AI 把动画角色「奶龙」与青蛙二次融合而成的**网络二创抽象形象**，与官方《奶龙》并非同一角色。
 - 授权：遵循其 **MIT License**，保留来源署名；若你认为某图仍需下架，请把问题发到本仓库 Issue。
 
@@ -24,8 +25,11 @@ dongguan-nailong/
 ├── CNAME              # 自定义域名（写 punycode）
 ├── .nojekyll          # 关闭 Jekyll
 ├── README.md
-└── assets/img/        # 来自互联网的真实奶蛙图（已本地化，避免防盗链/墙内不稳定）
+└── assets/img/        # 历史备份图片（页面已全部改为 jsDelivr 外链，不再引用）
     ├── frog-hero.png frog-biglaugh.png frog-pointlaugh.png
     ├── meme-laugh / -think / -confused / -pout / -peace / -heart / -blush / -point .png
     └── art-freedom / -nightwatch / -creation / -parting .jpg   # 名画再创作（自由引导奶蛙 / 奶蛙夜巡 / 创造奶蛙 / 奶西分海）
 ```
+
+
+9c209b (奶蛙图片改为 jsDelivr CDN 外链；表情包扩充至 20 个（含 GIF），加镜像兜底)

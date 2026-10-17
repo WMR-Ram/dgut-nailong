@@ -3,17 +3,26 @@
    ========================================================= */
 
 var FROG_IMGS = [
-  'assets/img/frog-hero.png',
-  'assets/img/meme-laugh.png',
-  'assets/img/meme-think.png',
-  'assets/img/meme-confused.png',
-  'assets/img/meme-pout.png',
-  'assets/img/meme-peace.png',
-  'assets/img/meme-heart.png',
-  'assets/img/meme-blush.png',
-  'assets/img/meme-point.png',
-  'assets/img/frog-biglaugh.png',
-  'assets/img/frog-pointlaugh.png'
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E8%B9%B2%E5%9D%90%E6%89%98%E8%85%AE.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E9%9C%B2%E9%BD%BF%E5%A4%A7%E7%AC%91.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E6%89%98%E8%85%AE.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%96%91%E6%83%91.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E6%B0%94%E9%BC%93%E9%BC%93.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%90%90%E8%88%8C.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%90%90%E8%88%8C%E6%AF%94%E5%BF%83.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E6%89%98%E9%A2%8C.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%82%B9%E9%BC%BB.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%BE%AE%E6%84%A0.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E4%BE%A7%E7%AB%8B.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E7%BF%BB%E6%BB%9A.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E6%8C%A5%E6%89%8B.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E9%9C%B2%E8%82%9A.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A4%B4%E5%A4%A7%E7%AC%91.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8C%87%E4%BD%A0%E5%A4%A7%E7%AC%91.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%A4%A7%E7%AC%91.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%9C%AF%E7%9C%BC%E5%BC%A0%E5%98%B4.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9.png',
+  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9B%80%E8%B7%83.png'
 ];
 
 /* ---------- 数字滚动统计 ---------- */
@@ -104,6 +113,28 @@ function initMobileMenu() {
     });
   });
 }
+
+
+/* ---------- 外链图片兜底：主站失败自动切换镜像，再失败则隐藏破图 ---------- */
+var HOT_MAIN = 'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/';
+var HOT_MIRROR = 'https://testingcf.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/';
+document.addEventListener('error', function (e) {
+  var t = e.target;
+  if (!(t && t.tagName === 'IMG')) return;
+  var src = t.src || '';
+  if (/jsdelivr\.net/.test(src)) {
+    if (src.indexOf(HOT_MAIN) === 0 && !t.dataset.triedMirror) {
+      t.dataset.triedMirror = '1';
+      t.src = HOT_MIRROR + src.slice(HOT_MAIN.length);   // 主 CDN 挂了 → Cloudflare 镜像
+      return;
+    }
+    t.style.visibility = 'hidden';
+    if (!window.__hotlinkWarned) {
+      window.__hotlinkWarned = true;
+      setTimeout(function () { say('🐸 奶蛙：部分图片外链加载失败（CDN 偶发限流），刷新一下试试'); }, 300);
+    }
+  }
+}, true);
 
 document.addEventListener('DOMContentLoaded', function () {
   animateCounts(); loopMarquee(); laughTicker(); initMemes(); initMobileMenu();
