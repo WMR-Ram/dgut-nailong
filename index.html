@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>东莞奶龙理工大学 · Dongguan NaiLong University of Technology（整活主页）</title>
+  <meta name="description" content="东莞奶龙理工大学——一所存在于互联网抽象宇宙中的奶龙主题大学。奶蛙出没，治愈满分。可直达东莞理工学院（DGUT）官网。本站为非官方整活页面。">
+  <link rel="icon" href="assets/img/frog-hero.png">
+  <meta property="og:title" content="东莞奶龙理工大学 · 奶蛙欢迎您">
+  <meta property="og:description" content="存在于抽象宇宙中的奶龙主题大学，一键直达东莞理工学院官网。">
+  <meta property="og:image" content="assets/img/frog-hero.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 顶部工具条 -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="u-left"><span>🐸 欢迎来到抽象宇宙第一学府 · 奶蛙今日已狂笑 <b id="laughCount">999+</b> 次</span></div>
+      <div class="u-right">
+        <a href="https://www.dgut.edu.cn" target="_blank" rel="noopener">学校官网 ↗</a>
+        <a href="#enroll">奶蛙入学</a>
+        <a href="#" onclick="openAbout();return false;">关于本站</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主导航 -->
+  <header class="header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <svg class="crest" viewBox="0 0 100 100" aria-label="东莞奶龙理工大学校徽">
+          <circle cx="50" cy="50" r="48" fill="#1f4e8c"/>
+          <circle cx="50" cy="50" r="40" fill="#fff7e0"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#ffcf33" stroke-width="2.5"/>
+          <text x="50" y="46" text-anchor="middle" font-size="30">🐸</text>
+          <text x="50" y="68" text-anchor="middle" font-size="12" font-weight="900" fill="#1f4e8c">DG·NL</text>
+          <text x="50" y="80" text-anchor="middle" font-size="6.5" fill="#6b6560">SINCE 1992</text>
+        </svg>
+        <span>
+          <div class="cn">东莞奶龙理工大学</div>
+          <div class="en">Dongguan NaiLong University of Technology</div>
+        </span>
+      </a>
+      <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="#top">首页</a></li>
+        <li><a href="#about">奶龙概况</a>
+          <ul class="sub">
+            <li><a href="#about">学校简介</a></li>
+            <li><a href="#stats">奶龙数据</a></li>
+            <li><a href="#colleges">奶蛙学院</a></li>
+          </ul>
+        </li>
+        <li><a href="#memes">表情包</a></li>
+        <li><a href="#laugh">大笑藏馆</a></li>
+        <li><a href="#gallery">奶蛙名画</a></li>
+        <li><a href="#news">校园资讯</a></li>
+        <li><a class="nav-cta" href="https://www.dgut.edu.cn" target="_blank" rel="noopener">进入官网 ↗</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <span id="top"></span>
+
+  <!-- Hero -->
+  <section class="hero" style="padding:0">
+    <div class="float-emoji" style="top:18%;left:6%">🐸</div>
+    <div class="float-emoji" style="top:70%;left:10%;animation-delay:.8s">🐉</div>
+    <div class="float-emoji" style="top:24%;right:8%;animation-delay:1.4s">😆</div>
+    <div class="float-emoji" style="top:78%;right:12%;animation-delay:.4s">🥚</div>
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="kicker">🐸 奶蛙 · 电子木鱼 · 抽象学府</span>
+        <h1>东莞<span class="hl">奶龙</span>理工大学</h1>
+        <div class="sub-en">Dongguan NaiLong University of Technology</div>
+        <p class="motto">学而知不足 <small>—— 校训由诺贝尔奖得主、名誉校长杨振宁先生题写（源自真实东莞理工学院）</small></p>
+        <p class="desc">一所「只存在于浏览器地址栏里」的奶龙主题大学。我们把互联网最治愈、最抽象的 <b>奶蛙</b> 请进了校园，也把它背后的 <b>东莞理工学院</b> 一并介绍给你。点一下，就能去真实的大学官网。</p>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="https://www.dgut.edu.cn" target="_blank" rel="noopener" onclick="jumpTo()">🚪 直达东莞理工学院官网</a>
+          <a class="btn btn-ghost" href="#memes">🐸 先看看奶蛙表情包</a>
+        </div>
+      </div>
+      <div class="badge-stage">
+        <div class="badge" onclick="badgeJump()" title="点我进入东莞理工学院官网">
+          <svg class="ring" viewBox="0 0 100 100">
+            <defs>
+              <path id="topArc" d="M50,50 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" fill="none"/>
+              <path id="botArc" d="M50,50 m-38,0 a38,38 0 1,0 76,0 a38,38 0 1,0 -76,0" fill="none"/>
+            </defs>
+            <circle cx="50" cy="50" r="49" fill="#1f4e8c"/>
+            <circle cx="50" cy="50" r="30" fill="#1f4e8c"/>
+            <text class="ring-text" fill="#ffcf33" font-size="7.6" letter-spacing="0.4">
+              <textPath href="#topArc" startOffset="6%">东 莞 奶 龙 理 工 大 学 · DONGGUAN NAILONG UNIVERSITY</textPath>
+            </text>
+            <text class="ring-text" fill="#fff" font-size="6.4" letter-spacing="1">
+              <textPath href="#botArc" startOffset="26%">奶 蛙 欢 迎 您 · 成 就 抽 象 人 生</textPath>
+            </text>
+          </svg>
+          <div class="core">
+            <img src="assets/img/frog-hero.png" alt="奶蛙吉祥物">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 跑马灯公告 -->
+  <div class="marquee">
+    <div class="track" id="marquee">
+      <span>🐸 2026 级「奶蛙新生」军训圆满结束，蛙声震天</span>
+      <span>🏆 我校连续 8 年蝉联「中国应用型整活大学排行榜」榜首</span>
+      <span>🥚 电子木鱼研究院荣获「互联网抽象情绪容器」国家级称号</span>
+      <span>🐉 捧腹大笑学院本学期选课人数突破 9999+</span>
+      <span>🚪 点击任意「官网」入口，即可前往真实的东莞理工学院 dgut.edu.cn</span>
+    </div>
+  </div>
+
+  <!-- 快捷入口 -->
+  <div class="quick">
+    <div class="wrap">
+      <a class="off" href="https://www.dgut.edu.cn" target="_blank" rel="noopener"><span class="ic">🏫</span>学校首页</a>
+      <a class="off" href="https://www.dgut.edu.cn/xxgk/jgsz.htm" target="_blank" rel="noopener"><span class="ic">🧭</span>机构设置</a>
+      <a class="off" href="https://jwb.dgut.edu.cn/" target="_blank" rel="noopener"><span class="ic">📚</span>本科教务</a>
+      <a class="off" href="https://lib.dgut.edu.cn/" target="_blank" rel="noopener"><span class="ic">📖</span>图书馆</a>
+      <a class="off" href="http://zsb.dgut.edu.cn/" target="_blank" rel="noopener"><span class="ic">🎓</span>本科招生</a>
+      <a href="#memes"><span class="ic">🐸</span>奶蛙表情</a>
+    </div>
+  </div>
+
+  <!-- 数据统计 -->
+  <section class="stats" id="stats">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">By the Numbers</div>
+        <h2>奶龙<span class="dot">·</span>数据一览</h2>
+        <p style="color:var(--nl-gray)">以下真实数据均取自东莞理工学院官网（www.dgut.edu.cn），数据截至 2026 年 6 月。</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="num" data-count="1992">0</div><div class="lab">正式建校年份</div><div class="foot">1990 批准筹建</div></div>
+        <div class="stat"><div class="num" data-count="20">0</div><div class="lab">二级学院（个）</div><div class="foot">含奶蛙荣誉学院</div></div>
+        <div class="stat"><div class="num" data-count="66">0</div><div class="lab">本科专业（个）</div><div class="foot">28 个一流建设点</div></div>
+        <div class="stat"><div class="num" data-count="2202">0</div><div class="lab">总占地面积（亩）</div><div class="foot">松山湖 + 莞城</div></div>
+        <div class="stat"><div class="num" data-count="1996">0</div><div class="lab">现有教职工（人）</div><div class="foot">专任教师 1349</div></div>
+        <div class="stat"><div class="num" data-count="19864">0</div><div class="lab">全日制本科生（人）</div><div class="foot">另有研究生 1341</div></div>
+        <div class="stat"><div class="num" data-count="999">0</div><div class="lab">博士专任教师（人）</div><div class="foot">占比约 74%</div></div>
+        <div class="stat"><div class="num" data-count="93">0</div><div class="lab">毕业去向落实率（%）</div><div class="foot">约 95% 留湾区</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 学校概况 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">About NaiLong</div>
+        <h2>奶龙<span class="dot">·</span>概况</h2>
+      </div>
+      <div class="news-grid" style="grid-template-columns: 1.1fr .9fr">
+        <div>
+          <h3 style="color:var(--nl-blue);margin-top:0">🐸 关于「东莞奶龙理工大学」</h3>
+          <p>「东莞奶龙理工大学」是一所以 <b>奶龙 / 奶蛙</b> 为精神图腾的网络整活学府，它并不真实存在，却把一所真实存在的优秀高校——<b>东莞理工学院（DGUT）</b> 作为自己跳转的终点。</p>
+          <h3 style="color:var(--nl-blue)">🏛️ 关于真实的东莞理工学院</h3>
+          <p>东莞理工学院坐落于粤港澳大湾区重要节点城市——广东东莞。学校 1990 年经广东省人民政府批准筹建，<b>1992 年 4 月经原国家教育委员会批准成立</b>，是东莞第一所公办本科院校，实行「省市共建、以市为主」的管理体制。</p>
+          <p>它是教育部首批卓越工程师教育培养计划试点高校、教育部首批高等教育综合改革试点高校、广东首批高水平理工科大学建设单位，<b>连续 8 年位居中国应用型大学排行榜首</b>，并跻身「2025 软科世界大学学术排名」全球 1000 强。1993 年至 2025 年，著名物理学大师 <b>杨振宁先生担任名誉校长 32 年</b>，并亲笔题写校训「<b>学而知不足</b>」。</p>
+          <p>学校现有 <b>松山湖、莞城</b> 两个校区，设有 20 个二级学院，建有与中国散裂中子源、松山湖材料实验室、华为等对接联动的学科体系，开设国内首个「杨振宁创新班」，与华为、西门子等共建 10 个现代产业学院。</p>
+          <a class="btn btn-ghost" style="background:var(--nl-blue);color:#fff;border:0" href="https://www.dgut.edu.cn/info/1012/76772.htm" target="_blank" rel="noopener">📄 阅读原文（官网学校简介）↗</a>
+        </div>
+        <div class="news-side">
+          <div class="notice" style="border-left-color:var(--nl-yellow-deep)">
+            <h5>🎯 培养目标</h5>
+            <p>坚持知行合一、立德树人，培养「勇于担当、善于学习、敢于超越」的高素质应用型创新人才——奶蛙表示：先学会大笑。</p>
+          </div>
+          <div class="notice" style="border-left-color:var(--nl-green)">
+            <h5>🧠 莞工精神</h5>
+            <p>爱国奋斗、追求卓越；战略理念：守正出新、登高致远；价值追求：以卓越的创新教育与实践造福社会。</p>
+          </div>
+          <div class="notice">
+            <h5>🐸 奶蛙校训</h5>
+            <p>「笑而知有余」——学完东莞理工的知识，再收获奶蛙的快乐，人生圆满。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 奶蛙学院 -->
+  <section id="colleges" style="background:var(--nl-cream)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">School of Naiwa</div>
+        <h2>奶蛙<span class="dot">·</span>院系设置</h2>
+        <p style="color:var(--nl-gray)">真实院校 20 个二级学院之外，为奶蛙增设以下整活学院（点击「官网入口」查看真实学院）。</p>
+      </div>
+      <div class="about-grid">
+        <div class="college"><div class="emoji">😆</div><span class="tag">王牌专业</span><h3>捧腹大笑学院</h3><p>研究「狂笑」这一人类顶级治愈行为。代表成果：奶蛙大笑藏馆。</p></div>
+        <div class="college"><div class="emoji">🥲</div><span class="tag">交叉学科</span><h3>抽象情绪工程学院</h3><p>涵盖平静、忧郁、天使、恶魔、神格、虚空等形态切换，培养全栈情绪容器。</p></div>
+        <div class="college"><div class="emoji">🪵</div><span class="tag">国家级平台</span><h3>电子木鱼研究院</h3><p>把敲电子木鱼做成科研，为互联网提供源源不断的精神代餐与赛博功德。</p></div>
+        <div class="college"><div class="emoji">🐉</div><span class="tag">新工科</span><h3>蛙类形态切换系</h3><p>研究奶龙与青蛙的 AI 融合畸变机理，探索紫皮人模式的下一次升级。</p></div>
+      </div>
+      <div style="text-align:center;margin-top:26px">
+        <a class="btn btn-ghost" style="background:#fff;color:var(--nl-blue);border:1px solid var(--nl-line)" href="https://www.dgut.edu.cn/yxjg/ejxy.htm" target="_blank" rel="noopener">🏫 查看真实的东莞理工 20 个二级学院 ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 表情包 -->
+  <section class="memes" id="memes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">Naiwa Memes</div>
+        <h2>奶蛙<span class="dot" style="color:#fff">·</span>表情包</h2>
+        <p style="color:rgba(255,255,255,.75)">点击任意表情，奶蛙会为你「形态切换」。图片来自互联网开源二创素材（详见页脚来源说明）。</p>
+      </div>
+      <div class="meme-grid" id="memeGrid">
+        <div class="meme" data-say="露齿大笑"><div class="box"><img src="assets/img/meme-laugh.png" alt="露齿大笑蛙"></div><div class="cap">露齿大笑蛙<small>「哈哈哈今天也是元气满满的一天」</small></div></div>
+        <div class="meme" data-say="托腮沉思"><div class="box"><img src="assets/img/meme-think.png" alt="托腮沉思蛙"></div><div class="cap">托腮沉思蛙<small>「学而不思则罔…」</small></div></div>
+        <div class="meme" data-say="震惊疑惑"><div class="box"><img src="assets/img/meme-confused.png" alt="疑惑蛙"></div><div class="cap">疑惑震惊蛙<small>「啊？这？不可能！」</small></div></div>
+        <div class="meme" data-say="气鼓鼓"><div class="box"><img src="assets/img/meme-pout.png" alt="气鼓鼓蛙"></div><div class="cap">气鼓鼓蛙<small>「哼，本蛙生气了」</small></div></div>
+        <div class="meme" data-say="双V比耶"><div class="box"><img src="assets/img/meme-peace.png" alt="比耶蛙"></div><div class="cap">双V比耶蛙<small>「考试，全都会」</small></div></div>
+        <div class="meme" data-say="吐舌比心"><div class="box"><img src="assets/img/meme-heart.png" alt="比心蛙"></div><div class="cap">吐舌比心蛙<small>「爱莞工，么么哒」</small></div></div>
+        <div class="meme" data-say="脸红"><div class="box"><img src="assets/img/meme-blush.png" alt="红晕蛙"></div><div class="cap">红晕托颌蛙<small>「被夸了，有点害羞」</small></div></div>
+        <div class="meme" data-say="指你"><div class="box"><img src="assets/img/meme-point.png" alt="指鼻蛙"></div><div class="cap">指指点点蛙<small>「说的就是你，还没学习」</small></div></div>
+      </div>
+      <div style="text-align:center;margin-top:26px">
+        <a class="btn btn-gold" href="https://www.dgut.edu.cn" target="_blank" rel="noopener" onclick="jumpTo()">🎓 表情看完了？去东莞理工官网看看真学校</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 大笑藏馆 -->
+  <section id="laugh">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">The Big Laugh Gallery</div>
+        <h2>大笑<span class="dot">·</span>藏馆</h2>
+      </div>
+      <div class="laugh-feature">
+        <div class="photo"><img src="assets/img/frog-biglaugh.png" alt="抱头大笑的奶蛙"></div>
+        <div>
+          <h3>「最伟大的笑」——捧腹大笑蛙</h3>
+          <p>作为「互联网电子木鱼」，奶蛙标志性的捧腹狂笑是它的灵魂。本站把它供奉为校徽 C 位、精神图腾。</p>
+          <p>据本站（不实）统计，奶蛙已连续三年蝉联「最想抱走吉祥物」金奖，笑到肚子疼的师生满意度高达 99.9%。</p>
+          <div class="btn-row">
+            <a class="btn btn-ghost" style="background:var(--nl-green);color:#fff;border:0" href="https://www.dgut.edu.cn/xxgk/xyfg/sshxq.htm" target="_blank" rel="noopener">🏞️ 看看真实的东莞理工校园风光 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 名画奶蛙 -->
+  <section id="gallery" class="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">Naiwa Masterpieces</div>
+        <h2>奶蛙<span class="dot">·</span>名画再创作</h2>
+        <p style="color:var(--nl-gray)">网友把世界名画里的 C 位都换成了奶蛙，抽象又上头。</p>
+      </div>
+      <div class="art-grid">
+        <div class="art-card"><div class="frame"><img src="assets/img/art-freedom.jpg" alt="自由引导奶蛙"></div><div class="meta"><b>《自由引导奶蛙》</b><small>德拉克洛瓦看了想革命</small></div></div>
+        <div class="art-card"><div class="frame"><img src="assets/img/art-nightwatch.jpg" alt="奶蛙夜巡"></div><div class="meta"><b>《奶蛙夜巡》</b><small>伦勃朗的光影里笑到发黄</small></div></div>
+        <div class="art-card"><div class="frame"><img src="assets/img/art-creation.jpg" alt="创造奶蛙"></div><div class="meta"><b>《创造奶蛙》</b><small>上帝指尖碰的是黄色小蛙</small></div></div>
+        <div class="art-card"><div class="frame"><img src="assets/img/art-parting.jpg" alt="奶西分海"></div><div class="meta"><b>《奶西分海》</b><small>摩西看了沉默，奶蛙看了想走</small></div></div>
+      </div>
+      <div class="attr">名画再创作素材来自社区仓库 <a href="https://github.com/Nailong-Studio/wallpaper" target="_blank" rel="noopener">奶蛙艺术圣殿（Nailong-Studio/wallpaper，MIT）</a>。</div>
+    </div>
+  </section>
+
+  <!-- 校园资讯 -->
+  <section id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="en">Campus News</div>
+        <h2>校园<span class="dot">·</span>资讯</h2>
+        <p style="color:var(--nl-gray)">以下内容摘编自东莞理工学院官网新闻中心 / 通知公告，点击可跳转原文。</p>
+      </div>
+      <div class="news-grid">
+        <div>
+          <ul class="news-list">
+            <li>
+              <div class="news-date"><b>16</b><span>2026.10</span></div>
+              <div class="news-item"><a href="https://www.dgut.edu.cn/info/1019/98332.htm" target="_blank" rel="noopener"><h4>学校召开「十五五」事业发展规划战略咨询会</h4></a><p>邀请中国高等教育学会原会长瞿振元等专家为学校发展把脉定向…</p></div>
+            </li>
+            <li>
+              <div class="news-date"><b>14</b><span>2026.10</span></div>
+              <div class="news-item"><a href="https://www.dgut.edu.cn/info/1019/98302.htm" target="_blank" rel="noopener"><h4>尺素之间，赏书法之妙</h4></a><p>2024「小榄杯」全国书法小品展莞工巡展在莞工美术馆开幕…</p></div>
+            </li>
+            <li>
+              <div class="news-date"><b>21</b><span>2026.09</span></div>
+              <div class="news-item"><a href="https://www.dgut.edu.cn/info/1019/97732.htm" target="_blank" rel="noopener"><h4>学校举行 2026 级本科生军训总结表彰大会</h4></a><p>松山湖、莞城两校区同步举行，2026 级新生展示军训成果…</p></div>
+            </li>
+            <li>
+              <div class="news-date"><b>15</b><span>2026.09</span></div>
+              <div class="news-item"><a href="https://www.dgut.edu.cn/info/1020/97682.htm" target="_blank" rel="noopener"><h4>我校武术队征战全国大学生武术赛事斩获 18 枚奖牌</h4></a><p>1 金 7 银 10 铜，荣获「体育道德风尚奖」…</p></div>
+            </li>
+          </ul>
+        </div>
+        <div class="news-side">
+          <div class="notice">
+            <h5>📢 通知公告</h5>
+            <p>巡视公告（2026.09.08）</p>
+            <p>「双百行动」校地合作共建项目清单公示</p>
+            <a class="more" href="https://www.dgut.edu.cn/index/tzgg.htm" target="_blank" rel="noopener">查看全部公告 ↗</a>
+          </div>
+          <div class="notice" style="border-left-color:var(--nl-green)">
+            <h5>🔬 学术科研</h5>
+            <p>科研总经费约 42 亿元，主导建设「东莞理工谱仪」面向全球开放。</p>
+            <a class="more" href="https://www.dgut.edu.cn/xsky1.htm" target="_blank" rel="noopener">进入学术科研板块 ↗</a>
+          </div>
+          <div class="notice" style="border-left-color:var(--nl-blue)">
+            <h5>🐸 奶蛙快讯</h5>
+            <p>据本站（不实）统计，奶蛙今日已替全中国大学生敲电子木鱼 3,000,000 次。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入学通道 -->
+  <section id="enroll">
+    <div class="wrap">
+      <div class="enroll">
+        <h2>🥚 奶蛙入学通道</h2>
+        <p>想成为「东莞奶龙理工大学」的荣誉奶蛙？很简单——先去一所真实的优秀大学看看。这里没有分数线，只有通往 <b>东莞理工学院</b> 官网的一扇门。</p>
+        <a class="btn btn-dark" href="https://www.dgut.edu.cn" target="_blank" rel="noopener" onclick="jumpTo()">🚪 立即前往 www.dgut.edu.cn</a>
+        <div class="url">真实招生信息 · 本科招生网 zsb.dgut.edu.cn</div>
+        <div style="margin-top:16px">
+          <a class="btn btn-ghost" style="background:transparent;color:#3a2e00;border:1px solid rgba(0,0,0,.25)" href="http://zsb.dgut.edu.cn/" target="_blank" rel="noopener">🎓 东莞理工本科招生 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <div class="brand-f"><img src="assets/img/frog-hero.png" alt="奶蛙"> 东莞奶龙理工大学</div>
+          <p class="addr">一所「地址栏里的大学」<br>现实坐标：粤港澳大湾区 · 广东东莞<br>真实母校：东莞理工学院（www.dgut.edu.cn）</p>
+        </div>
+        <div>
+          <h4>快速通道</h4>
+          <ul>
+            <li><a href="https://www.dgut.edu.cn" target="_blank" rel="noopener">东莞理工官网 ↗</a></li>
+            <li><a href="https://jwb.dgut.edu.cn/" target="_blank" rel="noopener">教务处 ↗</a></li>
+            <li><a href="https://lib.dgut.edu.cn/" target="_blank" rel="noopener">图书馆 ↗</a></li>
+            <li><a href="http://job.dgut.edu.cn/" target="_blank" rel="noopener">就业信息网 ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>真实校区</h4>
+          <p class="addr">松山湖校区：广东省东莞市松山湖区大学路 1 号<br>莞城校区：广东省东莞市莞城街道学院路 251 号<br>邮编：523808<br>电话：(0769) 22861199 / 22680730</p>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <b>免责声明：</b>本站为网友自制的「奶龙 / 奶蛙」主题<b>整活 / 恶搞（Parody）</b>页面，与东莞理工学院及动画《奶龙》版权方均<b>无任何官方关联</b>，不代表任何机构立场。<br>
+        <b>图片来源：</b>站内奶蛙形象为网络热门的 AI 二创抽象形象，素材取自社区开源仓库
+        <a href="https://github.com/Nailong-Studio/wallpaper" target="_blank" rel="noopener" style="color:#8fd1a0">「奶蛙艺术圣殿」Nailong-Studio/wallpaper</a>
+        （遵循其 <b>MIT License</b>，已本地化以便访问）；<b>非官方角色原图，本站不使用 AI 生成图片冒充官方</b>。所引用的学校简介、校训、数据、新闻标题与链接均来源于东莞理工学院官网（www.dgut.edu.cn），仅用于导流与介绍，相关权利归原作者与原网站所有。若涉及版权问题，请联系本站作者处理。
+      </div>
+      <div class="copyright">© 2026 东莞奶龙理工大学 · 域名 东莞奶龙理工.xyz（整活） · Powered by GitHub Pages · 🐸 奶蛙会记住你的</div>
+    </div>
+  </footer>
+
+  <!-- 关于本站 弹窗 -->
+  <div class="modal-mask" id="aboutModal" onclick="if(event.target===this)closeAbout()">
+    <div class="modal">
+      <button class="close" onclick="closeAbout()">×</button>
+      <h3>关于「东莞奶龙理工大学」</h3>
+      <div class="en">A PARODY FAN PAGE, NOT OFFICIAL</div>
+      <p>这是一份纯静态、零后端、托管在 GitHub Pages 上的<b>整活主页</b>。它把网络热门抽象角色 <b>奶龙 / 奶蛙</b> 包装成一所大学，核心目的只有一个：把你安全、醒目地送到真实的 <a href="https://www.dgut.edu.cn" target="_blank" rel="noopener"><b>东莞理工学院官网（www.dgut.edu.cn）</b></a>。</p>
+      <p>站内图片均为互联网开源二创素材（来源见页脚），<b>并非 AI 生成，也非《奶龙》官方角色图</b>。</p>
+      <div class="jump">
+        <div class="countdown">🐸</div>
+        <div class="txt">本站<b>不会自动跳转</b>（我们只做正经主页）。随时可点 → <a href="https://www.dgut.edu.cn" target="_blank" rel="noopener">进入东莞理工学院官网 ↗</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
