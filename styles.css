@@ -21,6 +21,7 @@
 }
 
 * { box-sizing: border-box; }
+html, body { overflow-x: clip; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -125,6 +126,24 @@ section { padding: 60px 0; }
 .college .tag { display: inline-block; font-size: 12px; color: var(--nl-green-deep); background: #eaf7ee; padding: 2px 10px; border-radius: 999px; margin-bottom: 10px; }
 .college p { margin: 0; font-size: 14px; color: var(--nl-gray); }
 
+
+/* ---------- 莞工名片 ---------- */
+.dgut-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.dgut-card { background: #fbf8f1; border: 1px solid var(--nl-line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); position: relative; }
+.dgut-card h4 { margin: 0 0 12px; color: var(--nl-blue); font-size: 17px; }
+.dgut-card p { margin: 12px 0 0; font-size: 13.5px; color: var(--nl-gray); }
+.motto-card { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #1f4e8c, #173a6b); border: 0; overflow: hidden; }
+.motto-card .brush { font-family: "KaiTi", "STKaiti", "Noto Serif SC", serif; font-size: clamp(34px, 5vw, 52px); letter-spacing: 10px; color: var(--nl-yellow); text-shadow: 0 4px 14px rgba(0,0,0,.35); font-weight: 900; }
+.motto-card small { color: rgba(255,255,255,.75); margin-top: 10px; font-size: 12.5px; letter-spacing: 1px; }
+.frog-sticker.fs-c { position: absolute; right: 10px; bottom: -6px; width: clamp(72px, 10vw, 110px); animation-delay: 1s; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: #fff; border: 1px solid var(--nl-line); color: var(--nl-blue); font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px; box-shadow: 0 2px 6px rgba(42,38,34,.05); }
+.map-card .campus-list { list-style: none; margin: 0; padding: 0; }
+.map-card .campus-list li { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px dashed var(--nl-line); }
+.map-card .campus-list b { color: var(--nl-blue); font-size: 15px; }
+.map-card .campus-list span { font-size: 12.5px; color: var(--nl-gray); }
+.map-card .more { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--nl-green-deep); font-weight: 700; }
+
 /* ---------- 表情包区 ---------- */
 .memes { background: var(--navy-bg); color: #fff; }
 .memes .sec-head .en { color: var(--nl-yellow); }
@@ -195,6 +214,32 @@ section { padding: 60px 0; }
 .disclaimer { margin-top: 34px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; font-size: 12px; opacity: .66; line-height: 1.9; }
 .copyright { text-align: center; font-size: 12px; opacity: .55; margin-top: 16px; }
 
+
+/* ---------- 奶蛙动图跑马灯 ---------- */
+.gif-marquee { background: var(--nl-ink); overflow: hidden; border-bottom: 3px solid var(--nl-yellow); }
+.gm-track { display: inline-flex; align-items: center; gap: 26px; padding: 10px 0; white-space: nowrap; animation: scroll 40s linear infinite; will-change: transform; }
+.gif-marquee:hover .gm-track { animation-play-state: paused; }
+.gm-track img { height: 58px; width: auto; max-width: none; border-radius: 10px; background: #fff; vertical-align: middle; }
+.gm-track span { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+
+/* ---------- GIF 角标 ---------- */
+.meme.has-gif { position: relative; }
+.gif-tag { position: absolute; top: 10px; left: 10px; z-index: 3; background: var(--nl-red); color: #fff; font-size: 11px; font-weight: 900; letter-spacing: 1px; padding: 3px 9px; border-radius: 999px; box-shadow: 0 4px 10px rgba(0,0,0,.3); pointer-events: none; }
+
+/* ---------- 大笑藏馆 GIF 三联条 ---------- */
+.laugh-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+.laugh-strip figure { margin: 0; background: #fff; border: 1px solid var(--nl-line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform .2s; }
+.laugh-strip figure:hover { transform: translateY(-5px) rotate(.6deg); }
+.laugh-strip img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: var(--nl-cream); }
+.laugh-strip figcaption { padding: 10px 14px; font-size: 13px; color: var(--nl-gray); text-align: center; }
+
+/* ---------- 奶蛙贴纸（GIF 融入各处） ---------- */
+.frog-sticker { position: absolute; z-index: 3; width: clamp(64px, 9vw, 118px); filter: drop-shadow(0 10px 18px rgba(0,0,0,.35)); pointer-events: none; animation: frog-bob 4.5s ease-in-out infinite; }
+.frog-sticker.fs-a { right: 4%; bottom: 6%; animation-delay: .6s; }
+.frog-sticker.fs-b { left: 4%; top: -34px; width: clamp(70px, 10vw, 120px); }
+@keyframes frog-bob { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-14px) rotate(5deg); } }
+.enroll { position: relative; }
+
 /* ---------- 弹窗 ---------- */
 .modal-mask { position: fixed; inset: 0; background: rgba(20,18,16,.55); backdrop-filter: blur(3px); display: none; place-items: center; z-index: 999; padding: 20px; }
 .modal-mask.on { display: grid; }
@@ -216,7 +261,7 @@ section { padding: 60px 0; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee span { margin: 0 26px; }
 
-/* ---------- 响应式 ---------- */
+/* ---------- 响应式（手机深度适配） ---------- */
 @media (max-width: 960px) {
   .hero .wrap { grid-template-columns: 1fr; text-align: center; padding-top: 46px; }
   .hero .btn-row, .hero .kicker { justify-content: center; }
@@ -226,17 +271,129 @@ section { padding: 60px 0; }
   .quick .wrap { grid-template-columns: repeat(3, 1fr); }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid, .art-grid { grid-template-columns: repeat(2, 1fr); }
-  .meme-grid { grid-template-columns: repeat(2, 1fr); }
+  .meme-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .news-grid { grid-template-columns: 1fr; }
   .laugh-feature { grid-template-columns: 1fr; }
   .footer .cols { grid-template-columns: 1fr; }
   .menu { display: none; }
   .burger { display: block; }
-  .menu.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 10px 20px 20px; border-bottom: 3px solid var(--nl-yellow); box-shadow: var(--shadow); }
+  .menu.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 10px 20px 20px; border-bottom: 3px solid var(--nl-yellow); box-shadow: var(--shadow); max-height: calc(100dvh - 72px); overflow-y: auto; }
   .menu.open .sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; padding-left: 14px; display: none; }
   .menu.open li.open .sub { display: block; }
 }
-@media (max-width: 520px) {
-  .quick .wrap { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+@media (max-width: 760px) {
+  /* 工具条与导航 */
+  .utility { font-size: 12px; }
+  .utility .wrap { height: auto; padding: 8px 20px; flex-wrap: wrap; gap: 4px 10px; }
+  .utility a { margin-left: 12px; }
+  .header { top: 0; }
+  .nav { height: 62px; }
+  .brand .cn { font-size: 17px; }
+  .brand .en { display: none; }
+  .brand .crest { width: 38px; height: 38px; }
+  .menu.open { top: 62px; max-height: calc(100dvh - 62px); }
+  /* 区块节奏 */
+  section { padding: 40px 0; }
+  .sec-head { margin-bottom: 24px; }
+  .wrap { padding: 0 14px; }
+  /* Hero */
+  .hero .wrap { padding: 34px 16px 44px; gap: 18px; }
+  .hero h1 { letter-spacing: 1px; }
+  .hero .motto { font-size: 17px; margin-bottom: 16px; }
+  .hero p.desc { font-size: 15px; margin: 12px auto 18px; }
+  .btn { padding: 12px 18px; font-size: 14px; }
+  .btn-row { gap: 10px; justify-content: center; }
+  .float-emoji { font-size: 26px; }
+  .frog-sticker.fs-a { bottom: 2%; right: 2%; opacity: .95; }
+  /* 快捷入口：横向滑动 */
+  .quick .wrap { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; padding: 14px; gap: 6px; scrollbar-width: none; }
+  .quick .wrap::-webkit-scrollbar { display: none; }
+  .quick a { scroll-snap-align: start; font-size: 12.5px; padding: 10px 4px; flex: 0 0 auto; width: 84px; }
+  .quick a .ic { font-size: 22px; }
+  /* 数据 */
+  .stat { padding: 18px 10px; }
+  .stat .num { font-size: 26px; }
+  .stat .lab { font-size: 13px; }
+  /* 学院卡 */
+  .college { padding: 16px; }
+  .college .emoji { font-size: 30px; }
+  .college h3 { font-size: 16px; }
+  .college p { font-size: 13px; }
+  /* 表情包：两列、大触控目标 */
+  .meme-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .meme .box { font-size: 40px; }
+  .meme .cap { padding: 9px 10px; font-size: 13.5px; }
+  .meme .cap small { font-size: 11px; }
+  .gif-tag { font-size: 10px; top: 7px; left: 7px; padding: 2px 7px; }
+  /* 动图跑马灯缩小 */
+  .gm-track img { height: 44px; }
+  .gm-track span { font-size: 12px; }
+  .gm-track { gap: 16px; }
+  /* 大笑藏馆三联条 → 横滑 */
+  .laugh-strip { grid-template-columns: 1fr; gap: 14px; }
+  .laugh-strip figure { scroll-snap-align: center; }
+  .laugh-strip figcaption { font-size: 12px; }
+  .laugh-feature h3 { font-size: 21px; }
+  /* 名画：两列 */
+  .art-grid { gap: 10px; }
+  .art-card .meta b { font-size: 13.5px; }
+  .art-card .meta small { font-size: 11px; }
+  .art-card .frame { aspect-ratio: 1/1; }
+  /* 资讯 */
+  .news-item h4 { font-size: 14.5px; }
+  .news-date { flex-basis: 52px; }
+  .news-date b { font-size: 18px; }
+  /* 入学 CTA */
+  .enroll { padding: 40px 18px 34px; border-radius: 18px; }
+  .frog-sticker.fs-b { top: -30px; left: 2%; }
+  .enroll p { font-size: 14.5px; }
+  .dgut-grid { grid-template-columns: 1fr; gap: 12px; }
+  .dgut-card { padding: 18px; }
+  .motto-card .brush { letter-spacing: 6px; }
+  /* 弹窗与气泡 */
+  .modal { padding: 24px 18px; border-radius: 16px; }
+  .modal h3 { font-size: 19px; }
+  .modal p { font-size: 14px; }
+  .modal .jump { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* 页脚 */
+  .footer { padding: 34px 0 22px; margin-top: 40px; }
+  .disclaimer { font-size: 11.5px; line-height: 1.8; }
+}
+@media (max-width: 380px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero h1 { font-size: 27px; }
+  .badge { width: min(240px, 74vw); }
+  .frog-sticker { width: 62px; }
+}
+/* 触控优化：去掉移动端 hover 抖动，按压反馈 */
+@media (hover: none) {
+  .meme:hover, .college:hover, .art-card:hover, .laugh-strip figure:hover, .quick a:hover { transform: none; }
+  .meme:active { transform: scale(.96); }
+  .btn:active { transform: scale(.97); }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto; } }
+
+/* ---------- 移动端底部标签栏 ---------- */
+.tabbar { display: none; }
+@media (max-width: 760px) {
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .tabbar { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-top: 3px solid var(--nl-yellow); padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -6px 20px rgba(0,0,0,.08); }
+  .tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; height: 61px; font-size: 11px; font-weight: 700; color: var(--nl-gray); transition: color .15s; }
+  .tabbar a.active { color: var(--nl-blue); }
+  .tabbar .ti { font-size: 21px; line-height: 1.1; }
+  .tabbar .ti-img { width: 26px; height: 26px; object-fit: contain; }
+  .tabbar .ti-txt { font-size: 11px; }
+  .tabbar a.cta { color: #fff; }
+  .tabbar a.cta .ti { filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+  .tabbar a.cta::after { content: ""; position: absolute; inset: auto; }
+  .tabbar a.cta { position: relative; }
+  .tabbar a.cta .ti, .tabbar a.cta span:last-child { position: relative; z-index: 2; }
+  .tabbar a.cta::before { content: ""; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 58px; height: 58px; border-radius: 50%; background: var(--nl-green); box-shadow: 0 6px 16px rgba(88,179,104,.5), 0 0 0 4px #fff; }
+}
+
+/* ---------- 溢出保险（超窄屏 / 大字系统） ---------- */
+.chips { min-width: 0; }
+.chip { max-width: 100%; overflow-wrap: anywhere; }
+.map-card .campus-list li span, .map-card .campus-list b { overflow-wrap: anywhere; }
+.dgut-grid > *, .meme, .college, .stat, .news-item, .notice { min-width: 0; }
+.quick a { min-width: 0; overflow-wrap: anywhere; }

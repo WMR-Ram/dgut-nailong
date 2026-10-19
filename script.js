@@ -47,7 +47,31 @@ function animateCounts() {
 }
 
 /* ---------- 跑马灯无缝循环 ---------- */
-function loopMarquee() { var t = document.getElementById('marquee'); if (t) t.innerHTML += t.innerHTML; }
+function loopMarquee() {
+  var t = document.getElementById('marquee'); if (t) t.innerHTML += t.innerHTML;
+  var g = document.getElementById('gifMarquee'); if (g) g.innerHTML += g.innerHTML;
+}
+
+/* ---------- 移动端：点按动图暂停/继续（省电省流量） ---------- */
+function initGifTapPause() {
+  if (!window.matchMedia('(hover: none)').matches) return;   // 仅触屏设备启用
+  document.querySelectorAll('.gm-track img, .laugh-strip img').forEach(function (im) {
+    im.addEventListener('click', function () {
+      im.dataset.paused === '1' ? delete im.dataset.paused : im.dataset.paused = '1';
+    });
+  });
+  setInterval(function () {
+    document.querySelectorAll('img[data-paused="1"]').forEach(function (im) {
+      if (!im.dataset.full) im.dataset.full = im.src;
+      var c = document.createElement('canvas');
+      c.width = im.naturalWidth || 200; c.height = im.naturalHeight || 150;
+      try { c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); im.src = c.toDataURL('image/png'); } catch (e) {}
+    });
+    document.querySelectorAll('img:not([data-paused])[data-full]').forEach(function (im) {
+      im.src = im.dataset.full; delete im.dataset.full;
+    });
+  }, 400);
+}
 
 /* ---------- 奶蛙狂笑计数 ---------- */
 function laughTicker() {
@@ -59,7 +83,7 @@ function laughTicker() {
 /* ---------- 表情包：点击「形态切换」换图 + 冒泡说话 ---------- */
 var memeQuotes = [
   '哈哈哈今天也是元气满满的一天 🐸', '学而不思则罔，托腮沉思中 🤔', '啊？这？不可能！🤯',
-  '哼，本蛙生气了 😤', '比个耶，考试全都会 ✌️', '比心！爱莞工 💛', '被夸了，脸红 🥰', '指你！就你还没学习 👉', '抱头狂笑停不下来 😂', '说的就是你，快去看官网 👆', '侧身一闪，躲过早八 🐸'
+  '哼，本蛙生气了 😤', '比个耶，考试全都会 ✌️', '比心！爱莞工 💛', '被夸了，脸红 🥰', '指你！就你还没学习 👉', '抱头狂笑停不下来 😂', '说的就是你，快去看官网 👆', '侧身一闪，躲过早八 🐸','笑不活了，先捶会儿桌子 😂','嘎——破音了 🐸','预习？那叫提前自学 📚','电子木鱼，赛博功德 +1 🧘','初雪模式已上线 ❄️','被点名的心跳：咚咚咚 💓','本蛙今日营业中 🈺'
 ];
 function initMemes() {
   var grid = document.getElementById('memeGrid'); if (!grid) return;
@@ -136,7 +160,21 @@ document.addEventListener('error', function (e) {
   }
 }, true);
 
+/* ---------- 移动端底栏高亮（scroll spy） ---------- */
+function initTabbar() {
+  var bar = document.querySelector('.tabbar'); if (!bar) return;
+  var links = [].slice.call(bar.querySelectorAll('a[href^="#"]'));
+  var map = {};
+  links.forEach(function (a) { var id = a.getAttribute('href').slice(1); var sec = document.getElementById(id); if (sec) map[id] = a; });
+  function onScroll() {
+    var y = window.scrollY + innerHeight * 0.4, cur = null;
+    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s.offsetTop <= y) cur = id; });
+    links.forEach(function (a) { a.classList.toggle('active', map[cur] === a); });
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-  animateCounts(); loopMarquee(); laughTicker(); initMemes(); initMobileMenu();
+  animateCounts(); loopMarquee(); laughTicker(); initMemes(); initMobileMenu(); initGifTapPause(); initTabbar();
   setTimeout(function () { say('🐸 奶蛙：欢迎来到东莞奶龙理工大学！'); }, 900);
 });

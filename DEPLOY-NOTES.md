@@ -3,13 +3,13 @@
 ## 已完成（全部验证通过）
 - 仓库：https://github.com/WMR-Ram/dgut-nailong （public，main 分支，26 个文件 / 6.1 MB）
 - GitHub Pages：**已开启并 built**，来源 main 分支根目录，.nojekyll 生效
-- CNAME：`xn--xhqq0zkqdo52ai0r8l2b.xyz`（= 东莞奶龙理工.xyz），GitHub 已登记该域名
+- CNAME：`xn--xhqq0zkqdo52ai0r8l2b.top`（= 东莞奶龙理工.top），GitHub 已登记该域名
 - 内容验证：经 Pages IP（185.199.108-111.153）返回 HTTP 200，标题「东莞奶龙理工大学」，
   styles.css / script.js / .nojekyll / assets/img/* 全部 200
-- 仓库 homepage 字段已设为 http://xn--xhqq0zkqdo52ai0r8l2b.xyz
+- 仓库 homepage 字段已设为 http://xn--xhqq0zkqdo52ai0r8l2b.top
 
 ## 唯一剩下的一步：DNS（需要你在域名注册商后台做）
-当前 `xn--xhqq0zkqdo52ai0r8l2b.xyz` 在全网 **NXDOMAIN**（未做任何解析记录），所以浏览器还打不开。
+当前 `xn--xhqq0zkqdo52ai0r8l2b.top` 在全网 **NXDOMAIN**（未做任何解析记录），所以浏览器还打不开。
 到 .xyz 域名的注册商 DNS 管理里添加：
 
 A 记录（主机记录 @）：
