@@ -6,32 +6,36 @@
 
 > ⚠️ 本站为网友自制整活页面，与东莞理工学院、动画《奶龙》及其版权方**均无任何官方关联**，不代表任何机构立场。
 
-## 图片来源（非 AI 生成，均取自互联网）
-站内所有奶蛙图片来自公开的社区素材仓库 **「奶蛙艺术圣殿」素材仓库**（MIT License，官方说明「素材免费拿，快乐不限量」）：
-- 仓库：<https://github.com/Nailong-Studio/wallpaper>
-- 分支/目录：`emotes/`（表情包）、`laugh-gallery/`（大笑藏馆）、`classic/`（名画再创作）
-- 说明：站内图片均为 **jsDelivr CDN 外链（hotlink）** 引用上述仓库（`https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/...`，失败自动切换 `testingcf` 镜像），本仓库不再依赖本地副本。
-- 说明：**奶蛙**是网友用 AI 把动画角色「奶龙」与青蛙二次融合而成的**网络二创抽象形象**，与官方《奶龙》并非同一角色。
-- 授权：遵循其 **MIT License**，保留来源署名；若你认为某图仍需下架，请把问题发到本仓库 Issue。
+## 图片来源与授权
+站内奶蛙形象来自公开的社区素材仓库 **「奶蛙艺术圣殿」**（MIT License，官方说明「素材免费拿，快乐不限量」）：
 
-> 版权说明：奶龙为受版权保护的动画 IP，本站不主张对其原型的任何权利；奶蛙二创素材遵循来源仓库的开源许可使用。本页面为戏仿/评论性质的粉丝整活站。
+- 上游仓库：<https://github.com/Nailong-Studio/wallpaper>（`emotes/` 表情包、`laugh-gallery/` 大笑藏馆、`classic/` 名画再创作）
+- **本站现为自托管**：图片已下载并转为 WebP 放在 `assets/frog/`，不再外链 CDN。
+  早期使用 `cdn.jsdelivr.net/gh/...` 外链，实测该链路会 `301` 跳转到 `raw.githubusercontent.com`（大陆不可达），
+  且上游改名/删除导致 5 张图破链，故改为随仓库发布。
+- **奶蛙**是网友把动画角色「奶龙」与青蛙二次融合而成的网络二创抽象形象，与官方《奶龙》并非同一角色。
+- 授权：遵循上游 **MIT License** 并保留来源署名（署名见页脚与「关于本站」）。
+  若你认为某张图仍需下架，请提到本仓库 Issue，会直接删除对应文件。
+
+> 版权说明：奶龙为受版权保护的动画 IP，本站不主张对其原型的任何权利；本站为戏仿/评论性质的粉丝整活站。
 
 ## 目录结构
 ```
 dongguan-nailong/
 ├── index.html         # 首页
-├── styles.css         # 奶龙主题样式
-├── script.js          # 数字滚动 / 表情包形态切换 / 弹窗（零依赖）
+├── 404.html           # 自定义 404（奶蛙也找不到这一页）
+├── styles.css         # 奶龙主题样式（断点 960 / 760 / 380 + 移动端底栏）
+├── script.js          # 数字滚动 / 表情包形态切换 / 弹窗（零依赖，无内联 JS）
+├── robots.txt         # 爬虫规则
+├── sitemap.xml        # 站点地图
+├── favicon.ico        # 多尺寸站点图标
 ├── CNAME              # 自定义域名（写 punycode）
 ├── .nojekyll          # 关闭 Jekyll
+├── DEPLOY-NOTES.md    # 部署与图片维护说明
 ├── README.md
-└── assets/img/        # 历史备份图片（页面已全部改为 jsDelivr 外链，不再引用）
-    ├── frog-hero.png frog-biglaugh.png frog-pointlaugh.png
-    ├── meme-laugh / -think / -confused / -pout / -peace / -heart / -blush / -point .png
-    └── art-freedom / -nightwatch / -creation / -parting .jpg   # 名画再创作（自由引导奶蛙 / 奶蛙夜巡 / 创造奶蛙 / 奶西分海）
+├── assets/frog/       # 全站图片（WebP，自托管）
+└── assets/img/        # 旧的本地备份图，页面已不引用
 ```
 
-
-9c209b (奶蛙图片改为 jsDelivr CDN 外链；表情包扩充至 20 个（含 GIF），加镜像兜底)
-
-##对网站的建议与意见可以提交到Issue
+## 反馈
+对网站的建议与意见可以提交到 [Issue](https://github.com/WMR-Ram/dgut-nailong/issues)。

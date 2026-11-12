@@ -1,28 +1,29 @@
 /* =========================================================
-   东莞奶龙理工大学 · 整活主页脚本（纯静态、零依赖）
+   东莞奶龙理工大学 · 整活主页脚本（纯静态、零依赖、图片自托管）
    ========================================================= */
 
-var FROG_IMGS = [
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E8%B9%B2%E5%9D%90%E6%89%98%E8%85%AE.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E9%9C%B2%E9%BD%BF%E5%A4%A7%E7%AC%91.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E6%89%98%E8%85%AE.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%96%91%E6%83%91.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E6%B0%94%E9%BC%93%E9%BC%93.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%90%90%E8%88%8C.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%90%90%E8%88%8C%E6%AF%94%E5%BF%83.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E6%89%98%E9%A2%8C.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E7%82%B9%E9%BC%BB.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%BE%AE%E6%84%A0.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E4%BE%A7%E7%AB%8B.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E7%BF%BB%E6%BB%9A.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E6%8C%A5%E6%89%8B.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E9%9C%B2%E8%82%9A.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A4%B4%E5%A4%A7%E7%AC%91.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8C%87%E4%BD%A0%E5%A4%A7%E7%AC%91.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%A4%A7%E7%AC%91.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%9C%AF%E7%9C%BC%E5%BC%A0%E5%98%B4.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9.png',
-  'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9B%80%E8%B7%83.png'
+/* 图片与台词一一对应：点击「形态切换」时，说的话跟着图一起换 */
+var FROGS = [
+  ['assets/frog/frog-hero.webp',     '学而不思则罔，托腮沉思中 🤔'],
+  ['assets/frog/frog-grin.webp',     '哈哈哈今天也是元气满满的一天 🐸'],
+  ['assets/frog/frog-chin.webp',     '这题我不会，但我很会装 🤔'],
+  ['assets/frog/frog-confused.webp', '啊？这？不可能！🤯'],
+  ['assets/frog/frog-pout.webp',     '哼，本蛙生气了 😤'],
+  ['assets/frog/frog-peace.webp',    '比个耶，考试全都会 ✌️'],
+  ['assets/frog/frog-heart.webp',    '比心！爱莞工 💛'],
+  ['assets/frog/frog-blush.webp',    '被夸了，脸红 🥰'],
+  ['assets/frog/frog-point.webp',    '说的就是你，还没学习 👉'],
+  ['assets/frog/frog-annoyed.webp',  '论文二稿？还是三稿？😕'],
+  ['assets/frog/frog-side.webp',     '在看手机，没在摸鱼 🫣'],
+  ['assets/frog/frog-roll.webp',     '早八起不来，就地一滚 🌀'],
+  ['assets/frog/frog-wave.webp',     '同学，今天也辛苦了 👋'],
+  ['assets/frog/frog-belly.webp',    '卷不动了，本蛙先躺为敬 🛋️'],
+  ['assets/frog/gh-holdhead.webp',   '抱头狂笑停不下来 😂'],
+  ['assets/frog/gh-point.webp',      '就你，快去看官网 👆'],
+  ['assets/frog/gh-peace.webp',      '查到绩点了！全 A！🎉'],
+  ['assets/frog/gh-squint.webp',     '嘿嘿，被表扬了 😁'],
+  ['assets/frog/gh-hands.webp',      '挂科的代价，你想过吗 😳'],
+  ['assets/frog/gh-jump.webp',       '本蛙今日营业中 🈺']
 ];
 
 /* ---------- 数字滚动统计 ---------- */
@@ -46,58 +47,79 @@ function animateCounts() {
   nums.forEach(function (n) { io.observe(n); });
 }
 
-/* ---------- 跑马灯无缝循环 ---------- */
+/* ---------- 跑马灯无缝循环 ----------
+   文字条复制一份即可；动图条在触屏上只留一份并停掉自动滚动，
+   否则十几张动图会持续解码，白吃电量和流量。 */
+var isTouch = window.matchMedia('(hover: none)').matches;
+function doubleTrack(el) {
+  [].slice.call(el.children).forEach(function (k) { el.appendChild(k.cloneNode(true)); });
+}
 function loopMarquee() {
-  var t = document.getElementById('marquee'); if (t) t.innerHTML += t.innerHTML;
-  var g = document.getElementById('gifMarquee'); if (g) g.innerHTML += g.innerHTML;
+  var t = document.getElementById('marquee');
+  if (t) doubleTrack(t);
+  var g = document.getElementById('gifMarquee');
+  if (!g) return;
+  if (isTouch) g.parentElement.classList.add('swipe');
+  else doubleTrack(g);
 }
 
-/* ---------- 移动端：点按动图暂停/继续（省电省流量） ---------- */
+/* ---------- 触屏：点一下把动图定格，再点恢复 ---------- */
 function initGifTapPause() {
-  if (!window.matchMedia('(hover: none)').matches) return;   // 仅触屏设备启用
+  if (!isTouch) return;
   document.querySelectorAll('.gm-track img, .laugh-strip img').forEach(function (im) {
     im.addEventListener('click', function () {
-      im.dataset.paused === '1' ? delete im.dataset.paused : im.dataset.paused = '1';
+      if (im.dataset.paused === '1') {
+        im.src = im.dataset.still;
+        delete im.dataset.paused;
+        delete im.dataset.still;
+        return;
+      }
+      if (!im.naturalWidth) return;
+      var c = document.createElement('canvas');
+      c.width = im.naturalWidth;
+      c.height = im.naturalHeight;
+      c.getContext('2d').drawImage(im, 0, 0);
+      im.dataset.still = im.src;
+      im.src = c.toDataURL('image/webp');
+      im.dataset.paused = '1';
     });
   });
-  setInterval(function () {
-    document.querySelectorAll('img[data-paused="1"]').forEach(function (im) {
-      if (!im.dataset.full) im.dataset.full = im.src;
-      var c = document.createElement('canvas');
-      c.width = im.naturalWidth || 200; c.height = im.naturalHeight || 150;
-      try { c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); im.src = c.toDataURL('image/png'); } catch (e) {}
-    });
-    document.querySelectorAll('img:not([data-paused])[data-full]').forEach(function (im) {
-      im.src = im.dataset.full; delete im.dataset.full;
-    });
-  }, 400);
 }
 
 /* ---------- 奶蛙狂笑计数 ---------- */
 function laughTicker() {
   var el = document.getElementById('laughCount'); if (!el) return;
   var n = 999; el.textContent = n.toLocaleString('en-US');
-  setInterval(function () { n += 1 + Math.floor(Math.random() * 4); el.textContent = n.toLocaleString('en-US'); }, 1500);
+  setInterval(function () {
+    if (document.hidden) return;
+    n += 1 + Math.floor(Math.random() * 4);
+    el.textContent = n.toLocaleString('en-US');
+  }, 1500);
 }
 
 /* ---------- 表情包：点击「形态切换」换图 + 冒泡说话 ---------- */
-var memeQuotes = [
-  '哈哈哈今天也是元气满满的一天 🐸', '学而不思则罔，托腮沉思中 🤔', '啊？这？不可能！🤯',
-  '哼，本蛙生气了 😤', '比个耶，考试全都会 ✌️', '比心！爱莞工 💛', '被夸了，脸红 🥰', '指你！就你还没学习 👉', '抱头狂笑停不下来 😂', '说的就是你，快去看官网 👆', '侧身一闪，躲过早八 🐸','笑不活了，先捶会儿桌子 😂','嘎——破音了 🐸','预习？那叫提前自学 📚','电子木鱼，赛博功德 +1 🧘','初雪模式已上线 ❄️','被点名的心跳：咚咚咚 💓','本蛙今日营业中 🈺'
-];
 function initMemes() {
   var grid = document.getElementById('memeGrid'); if (!grid) return;
   grid.querySelectorAll('.meme').forEach(function (m, i) {
-    var idx = i + 1;
-    m.addEventListener('click', function () {
-      var img = m.querySelector('.box img');
-      idx = (idx + 1) % FROG_IMGS.length;
-      if (img) img.src = FROG_IMGS[idx];
+    m.setAttribute('role', 'button');
+    m.tabIndex = 0;
+    var img = m.querySelector('.box img');
+    /* 从当前显示的那张图接着往下换，否则首点会原地不动 */
+    var slug = img ? img.src.replace(/^.*\/([a-z0-9-]+)\.webp.*$/, '$1') : '';
+    var idx = FROGS.findIndex(function (f) { return f[0].indexOf('/' + slug + '.webp') >= 0; });
+    if (idx < 0) idx = i - 1;
+    function activate() {
+      idx = (idx + 1) % FROGS.length;
+      if (img) img.src = FROGS[idx][0];
       m.animate(
         [{ transform: 'scale(1)' }, { transform: 'scale(1.1) rotate(-3deg)' }, { transform: 'scale(1)' }],
         { duration: 400, easing: 'ease-out' }
       );
-      say('🐸 ' + (memeQuotes[i] || '奶蛙：嘿嘿'));
+      say('🐸 ' + FROGS[idx][1]);
+    }
+    m.addEventListener('click', activate);
+    m.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); activate(); }
     });
   });
 }
@@ -107,7 +129,9 @@ var bubbleTimer;
 function say(text) {
   var b = document.getElementById('naiwaBubble');
   if (!b) {
-    b = document.createElement('div'); b.id = 'naiwaBubble';
+    b = document.createElement('div');
+    b.id = 'naiwaBubble';
+    b.setAttribute('role', 'status');
     b.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#fff;color:#2a2622;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.25);border:3px solid #ffcf33;z-index:1200;opacity:0;transition:.28s;max-width:88vw;text-align:center;';
     document.body.appendChild(b);
   }
@@ -117,18 +141,53 @@ function say(text) {
   bubbleTimer = setTimeout(function () { b.style.opacity = '0'; b.style.transform = 'translateX(-50%) translateY(20px)'; }, 2200);
 }
 
-/* ---------- 弹窗 ---------- */
-function openAbout() { document.getElementById('aboutModal').classList.add('on'); }
-function closeAbout() { document.getElementById('aboutModal').classList.remove('on'); }
+/* ---------- 弹窗：打开时接管焦点，关闭时还给触发元素 ---------- */
+var aboutOpener = null;
+function openAbout(e) {
+  var mask = document.getElementById('aboutModal');
+  aboutOpener = (e && e.currentTarget) || document.activeElement;
+  mask.classList.add('on');
+  mask.querySelector('.close').focus();
+}
+function closeAbout() {
+  var mask = document.getElementById('aboutModal');
+  if (!mask.classList.contains('on')) return;
+  mask.classList.remove('on');
+  if (aboutOpener && aboutOpener.focus) aboutOpener.focus();
+}
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAbout(); });
 
 /* ---------- 官网入口点击提示（不强制跳转） ---------- */
 function jumpTo() { say('🐸 正在为你打开东莞理工学院官网 www.dgut.edu.cn …'); }
-function badgeJump() { window.open('https://www.dgut.edu.cn', '_blank'); }
+
+/* ---------- 交互绑定：HTML 里不写内联 JS ---------- */
+function initUiHooks() {
+  document.querySelectorAll('[data-about]').forEach(function (b) {
+    b.addEventListener('click', openAbout);
+  });
+  var mask = document.querySelector('[data-about-mask]');
+  if (mask) mask.addEventListener('click', function (e) { if (e.target === mask) closeAbout(); });
+  var x = document.querySelector('.modal .close');
+  if (x) x.addEventListener('click', closeAbout);
+  // 所有通往 dgut 官网的新窗口都提示一句，并显式切断 opener
+  document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+    a.rel = (a.rel.indexOf('noopener') < 0 ? 'noopener ' : '') + a.rel;
+    if (/dgut\.edu\.cn/.test(a.href)) a.addEventListener('click', jumpTo);
+  });
+}
 
 /* ---------- 移动端菜单 ---------- */
 function initMobileMenu() {
   var menu = document.getElementById('menu'); if (!menu) return;
+  var burger = document.querySelector('.burger');
+  if (burger) {
+    burger.setAttribute('aria-controls', 'menu');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
   menu.querySelectorAll('.menu > li > a').forEach(function (a) {
     a.addEventListener('click', function (e) {
       if (window.innerWidth > 960) return;
@@ -137,28 +196,6 @@ function initMobileMenu() {
     });
   });
 }
-
-
-/* ---------- 外链图片兜底：主站失败自动切换镜像，再失败则隐藏破图 ---------- */
-var HOT_MAIN = 'https://cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/';
-var HOT_MIRROR = 'https://testingcf.jsdelivr.net/gh/Nailong-Studio/wallpaper@main/';
-document.addEventListener('error', function (e) {
-  var t = e.target;
-  if (!(t && t.tagName === 'IMG')) return;
-  var src = t.src || '';
-  if (/jsdelivr\.net/.test(src)) {
-    if (src.indexOf(HOT_MAIN) === 0 && !t.dataset.triedMirror) {
-      t.dataset.triedMirror = '1';
-      t.src = HOT_MIRROR + src.slice(HOT_MAIN.length);   // 主 CDN 挂了 → Cloudflare 镜像
-      return;
-    }
-    t.style.visibility = 'hidden';
-    if (!window.__hotlinkWarned) {
-      window.__hotlinkWarned = true;
-      setTimeout(function () { say('🐸 奶蛙：部分图片外链加载失败（CDN 偶发限流），刷新一下试试'); }, 300);
-    }
-  }
-}, true);
 
 /* ---------- 移动端底栏高亮（scroll spy） ---------- */
 function initTabbar() {
@@ -175,6 +212,6 @@ function initTabbar() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  animateCounts(); loopMarquee(); laughTicker(); initMemes(); initMobileMenu(); initGifTapPause(); initTabbar();
+  animateCounts(); loopMarquee(); laughTicker(); initMemes(); initMobileMenu(); initGifTapPause(); initTabbar(); initUiHooks();
   setTimeout(function () { say('🐸 奶蛙：欢迎来到东莞奶龙理工大学！'); }, 900);
 });

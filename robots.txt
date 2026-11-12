@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /DEPLOY-NOTES.md
+Disallow: /README.md
+
+Sitemap: https://xn--xhqq0zkqdo52ai0r8l2b.top/sitemap.xml

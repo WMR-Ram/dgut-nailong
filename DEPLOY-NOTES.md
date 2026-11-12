@@ -1,44 +1,44 @@
-# 部署结果 · dgut-nailong
+# 部署说明 · dgut-nailong
 
-## 已完成（全部验证通过）
-- 仓库：https://github.com/WMR-Ram/dgut-nailong （public，main 分支，26 个文件 / 6.1 MB）
-- GitHub Pages：**已开启并 built**，来源 main 分支根目录，.nojekyll 生效
-- CNAME：`xn--xhqq0zkqdo52ai0r8l2b.top`（= 东莞奶龙理工.top），GitHub 已登记该域名
-- 内容验证：经 Pages IP（185.199.108-111.153）返回 HTTP 200，标题「东莞奶龙理工大学」，
-  styles.css / script.js / .nojekyll / assets/img/* 全部 200
-- 仓库 homepage 字段已设为 http://xn--xhqq0zkqdo52ai0r8l2b.top
+纯静态站，GitHub Pages 直接从 `main` 分支根目录发布，无构建步骤。
 
-## 唯一剩下的一步：DNS（需要你在域名注册商后台做）
-当前 `xn--xhqq0zkqdo52ai0r8l2b.top` 在全网 **NXDOMAIN**（未做任何解析记录），所以浏览器还打不开。
-到 .xyz 域名的注册商 DNS 管理里添加：
+## 线上信息
+- 仓库：https://github.com/WMR-Ram/dgut-nailong （public，main 分支）
+- 域名：`东莞奶龙理工.top` → Punycode `xn--xhqq0zkqdo52ai0r8l2b.top`（写在 `CNAME`）
+- Pages 来源：main 分支 / (root)，`.nojekyll` 关闭 Jekyll 处理
 
-A 记录（主机记录 @）：
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
-AAAA 记录（@）：
-  2606:50c0:8000::153 / 2606:50c0:8001::153 / 2606:50c0:8002::153 / 2606:50c0:8003::153
-CNAME 记录（www）： WMR-Ram.github.io.
+## DNS（注册商后台）
+```
+A     @     185.199.108.153 / 109.153 / 110.153 / 111.153
+AAAA  @     2606:50c0:8000::153 / 8001::153 / 8002::153 / 8003::153
+CNAME www   WMR-Ram.github.io.
+```
+记录生效后 GitHub 会自动签发证书（约 5–30 分钟），随后在 Settings → Pages 勾选 Enforce HTTPS。
+证书未签发时过早勾选 Enforce HTTPS，API 会返回 404，属正常现象。
 
-生效后 GitHub 自动签发 HTTPS 证书（约 5–30 分钟）。之后可在
-Settings → Pages 勾选 Enforce HTTPS（我试过早开：证书未签发时 API 返回 404，属正常）。
+## 目录结构
+```
+index.html          首页
+styles.css          样式（断点 960 / 760 / 380 + 移动端底栏）
+script.js           交互（零依赖、无内联 JS）
+404.html            自定义 404
+robots.txt          sitemap 入口
+sitemap.xml         站点地图
+favicon.ico         多尺寸图标（16/32/48）
+assets/frog/        全站图片，WebP 自托管（约 2.1 MB）
+assets/img/         旧的本地备份图，页面已不引用
+```
 
-## 本机网络的两个坑（已绕过，但你要知道）
-1. `C:\Windows\System32\drivers\etc\hosts` 把 github.com / api.github.com / *.githubusercontent.com
-   等 27 条全部指向 127.0.0.1 —— 这台机器原本访问不了 GitHub 网页和 API。
-2. Windows schannel TLS 的证书吊销检查（CRL）失败，导致 git/curl 直接报
-   CRYPT_E_NO_REVOCATION_CHECK。
+## 图片维护
+站内奶蛙图早期用 `cdn.jsdelivr.net/gh/Nailong-Studio/wallpaper` 外链，实测该 CDN 会
+`301 → raw.githubusercontent.com`（大陆不可达），且上游已删改过 5 个文件名导致破图，
+因此全部改为自托管。新增图片时：
 
-我的处理：写了本地旁路代理 `C:\Users\Ram\gh-shim.js`（监听 127.0.0.1:18080，
-把 CONNECT 隧道转发到真实 GitHub IP，绕开 hosts），git/curl 走它完成推送与 API 调用。
-该进程是隐藏窗口启动的，重启电脑后消失；下次要推代码需先重新启动它：
+1. 转成 WebP（单张控制在 100 KB 内，动图 ≤ 500 KB）；
+2. 放进 `assets/frog/`，文件名用 ASCII；
+3. `<img>` 补 `loading="lazy"` 与 `width`/`height`；首屏图例外，用 `fetchpriority="high"`。
 
-    node C:/Users/Ram/gh-shim.js        （或双击一个 bat）
-    cd E:/dongguan-nailong
-    git -c http.proxy=http://127.0.0.1:18080 push origin main
-
-凭据已存进 `C:\Users\Ram\.git-credentials`（credential.helper=store），无需再输 token。
-
-⚠️ 建议：这个 token 权限是全量 repo scope，已在本次对话中明文出现。部署完成后
-请到 https://github.com/settings/tokens 撤销并换新 token，然后更新 .git-credentials。
+## 待办
+- [ ] 首页与「奶龙概况」的数据（建校年份、学院数、师生数、就业率）每年核对一次官网原文
+- [ ] 校园资讯 4 条为摘编，会过期，需定期替换或改成"最近动态"外链
+- [ ] ⚠️ 三处待核：连续 8 年应用型大学榜首 / 博士专任教师 999 人（占比 74%）/ 杨振宁先生名誉校长 1993–2025 表述

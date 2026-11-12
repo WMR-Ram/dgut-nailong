@@ -211,8 +211,22 @@ section { padding: 60px 0; }
 .footer ul { list-style: none; margin: 0; padding: 0; }
 .footer li { margin-bottom: 8px; font-size: 14px; }
 .footer .addr { font-size: 13px; opacity: .8; line-height: 1.9; }
-.disclaimer { margin-top: 34px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; font-size: 12px; opacity: .66; line-height: 1.9; }
-.copyright { text-align: center; font-size: 12px; opacity: .55; margin-top: 16px; }
+.disclaimer { margin-top: 34px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; font-size: 12px; color: #b9b1a6; line-height: 1.9; }
+.copyright { text-align: center; font-size: 12px; color: #a49c92; margin-top: 16px; }
+
+/* ---------- 无障碍：跳转链接 / 键盘焦点 / 文字型按钮 ---------- */
+.skip { position: absolute; left: -9999px; top: 0; z-index: 1300; background: #fff; color: var(--nl-blue); padding: 10px 16px; border-radius: 0 0 12px 0; font-weight: 700; }
+.skip:focus { left: 0; }
+:where(a, button, [role="button"]):focus-visible { outline: 3px solid var(--nl-yellow-deep); outline-offset: 3px; border-radius: 8px; }
+.linklike { background: none; border: 0; padding: 0; margin: 0 0 0 16px; font: inherit; color: inherit; opacity: .85; cursor: pointer; }
+.linklike:hover { opacity: 1; }
+.badge { display: block; }
+
+/* ---------- 触屏动图条：可手滑、不自动循环（少解码一半动图） ---------- */
+.gif-marquee.swipe { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.gif-marquee.swipe::-webkit-scrollbar { display: none; }
+.gif-marquee.swipe .gm-track { animation: none; will-change: auto; }
+.gif-marquee.swipe .gm-track img { flex: 0 0 auto; }
 
 
 /* ---------- 奶蛙动图跑马灯 ---------- */
